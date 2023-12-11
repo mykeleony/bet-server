@@ -31,13 +31,15 @@ public class Server {
                     double aposta = Double.parseDouble(in.readLine());
                     processarAposta(aposta, out);
 
+                    in.readLine();
+
                     // Pergunta se quer continuar
                     out.println("Deseja 'continuar', 'sacar' ou 'depositar'?");
                     String decisao = in.readLine();
 
                     switch (decisao.toLowerCase()) {
                         case "sacar" -> {
-                            out.println("Você sacou: " + saldo);
+                            out.println("Você sacou: " + saldo + ". Aperte enter para finalizar a conexão.");
                             continuar = false;
                         }
 
@@ -65,10 +67,10 @@ public class Server {
     private void processarAposta(double valor, PrintWriter out) {
         if (new Random().nextBoolean()) {
             saldo += valor;
-            out.println("Você ganhou! Saldo atualizado: " + saldo);
+            out.println("Você ganhou! Saldo atualizado: " + saldo + "Aperte enter para prosseguir.");
         } else {
             saldo -= valor;
-            out.println("Você perdeu! Saldo atualizado: " + saldo);
+            out.println("Você perdeu! Saldo atualizado: " + saldo + "Aperta enter para prosseguir.");
         }
     }
 }
