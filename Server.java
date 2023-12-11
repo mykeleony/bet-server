@@ -18,7 +18,7 @@ public class Server {
                  PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                  BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
 
-                System.out.println("Cliente conectado.");
+                out.println("Cliente conectado.");
 
                 // Solicita depósito inicial
                 out.println("Digite o valor inicial a ser depositado:");
@@ -39,7 +39,7 @@ public class Server {
 
                     switch (decisao.toLowerCase()) {
                         case "sacar" -> {
-                            out.println("Você sacou: " + saldo + ". Aperte enter para finalizar a conexão.");
+                            out.println("Você sacou: " + saldo + ". Conexão encerrada.");
                             continuar = false;
                         }
 
